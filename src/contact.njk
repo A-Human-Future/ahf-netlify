@@ -17,22 +17,22 @@ bodyTokens: 'bg-primary'
         <form name="contact" method="POST" class="flow" data-netlify="true">
             <div class="form-group">
                 <label for="name">Your name <span class="color-light">*</span></label>
-                <input type="text" id="name" required/>
+                <input name="full-name" type="text" id="name" required/>
             </div>
             <div class="form-group">
                 <label for="email">Email address <span class="color-light">*</span></label>
-                <input type="email" id="email" required/>
+                <input name="email-address" type="email" id="email" required/>
             </div>
             <div class="form-group">
                 <label for="phone">Telephone number</label>
-                <input type="tel" id="phone" />
+                <input name="telephone-number" type="tel" id="phone" />
             </div>
             <div class="form-group">
                 <label for="deets">What do we wanna build? <span class="color-light">*</span></label>
-                <textarea required rows="10" id="deets" placeholder="The more detail you can provide the better, but we can chat it out if you need help getting it right."></textarea>
+                <textarea name="details" required rows="10" id="deets" placeholder="The more detail you can provide the better, but we can chat it out if you need help getting it right."></textarea>
             </div>
             <div class="[ ta-right ]">
-                <button class="[ link-button ] [ font-mono tt-upper ]" type="submit" value="send message">Send message</button>
+                <button name="submit-button" class="[ link-button ] [ font-mono tt-upper ]" type="submit" value="send message">Send message</button>
             </div>
         </form>
     </div>
