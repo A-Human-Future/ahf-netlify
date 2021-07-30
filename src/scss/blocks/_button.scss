@@ -1,0 +1,29 @@
+.button {
+  --button-bg: transparent;
+  --button-text: #{get-color('dark')};
+  --button-stroke: #{get-color('secondary')};
+
+  display: inline-block;
+  border: 2px solid var(--button-stroke);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 50%;
+  line-height: 1;
+  padding: get-size('600') get-size('700');
+  text-decoration: none;
+
+  &:hover {
+    --button-text: #{get-color('light')};
+    --button-bg: #{get-color('secondary')};
+  }
+
+  &:focus {
+    outline: 2px solid transparent; // For high contrast screens
+    box-shadow: 0 0 0 2px var(--button-stroke);
+  }
+
+  /// Themes
+  &[data-theme='light'] {
+    --button-stroke: #{get-color('light')};
+  }
+}

@@ -1,0 +1,38 @@
+---
+title: 'Contact'
+siteHeadColor: 'primary'
+siteHeadHighlight: 'light'
+siteFootDecor: false
+siteFootCTA: false
+bodyTokens: 'bg-primary'
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<div class="[ contact-page ] [ wrapper flow ]" data-type="narrow">
+  <h1>Let’s talk.</h1>
+  <p class="font-mono flow-space-300">We’re currently booking new projects for Q4 2021.</p>
+  <form class="flow">
+    <div class="form-group">
+      <label for="name">Your full name</label>
+      <input type="text" id="name" />
+    </div>
+    <div class="form-group">
+      <label for="email">Your email address</label>
+      <input type="email" id="email" />
+    </div>
+    <div class="form-group">
+      <label for="phone">Your phone number</label>
+      <input type="tel" id="phone" />
+    </div>
+    <div class="form-group">
+      <label for="deets">What are you building?</label>
+      <textarea rows="10" id="deets" placeholder="The more detail you can provide, the better."></textarea>
+    </div>
+    <div class="[ form-group ] [ ta-right ]">
+      <button class="[ link-button ] [ font-mono tt-upper ]">Send message</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

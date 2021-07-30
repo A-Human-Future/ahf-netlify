@@ -1,0 +1,12 @@
+.content-page {
+  text-align: center;
+
+  img {
+    width: 100vw;
+    max-width: 50rem;
+    height: clamp(10rem, 55vh, 40rem);
+    object-fit: cover;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}

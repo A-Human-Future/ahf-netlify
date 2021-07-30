@@ -1,0 +1,38 @@
+<footer role="contentinfo" class="[ site-foot ] [ text-300 bg-primary gap-top-800 ]">
+  {% if siteFootDecor != false %}
+  <div class="wrapper">
+    {{ circleText('Signals in the static, communiques in the attic', 'footer-circle')}}
+  </div>
+  {% endif %}
+ 
+  <!-- CTA starts -->
+  <!-- If you want to turn this CTA on and off, here's the wrapper for it -->
+  {% if siteFootCTA != false %}
+  <div class="[ site-foot__cta ] [ wrapper ] [ flow ]">
+    <h2 class="text-800">Let’s talk.</h2> 
+    <div class="flow-space-400"><a href="/contact" class="[ button ] [ text-500 border-light ]">Booking new work!</a></div>
+    <div><a class="font-mono text-400" href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+    <div class="flow-space-300">
+      <p class="font-mono text-400 bg-dark color-light box-inline-block">The future is human.</p>
+    </div>
+  </div>
+  {% endif %}
+  <!-- CTA ends -->
+
+  <div class="[ site-foot__inner ] [ splitter ] [ wrapper ]">
+    <div class="line-highlight" data-position="top">
+      <a href="/" class="[ brand ] [ pad-bottom-300 ]">
+        <span class="[ dot ] [ color-light ]" role="presentation"></span>
+        <span>{{ site.name }}</span>
+      </a>
+    </div>
+    <div class="splitter__group">
+      <div class="line-highlight" data-position="top">
+        <a href="/contact" class="box-block color-dark pad-bottom-300">Now booking for Q4</a>
+      </div>
+      <div class="line-highlight" data-position="top">
+        <div class="pad-bottom-300">© A Human Future, 2021</div>
+      </div>
+    </div>
+  </div>
+</footer>

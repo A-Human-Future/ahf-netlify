@@ -1,0 +1,27 @@
+.audio-toggle {
+  // These are because the link button get's higher specificity by proxy
+  // of source order, so we get an !important, rather than a hacky selector
+  display: inline-flex !important;
+  text-decoration: none !important;
+  align-items: center;
+  gap: 0.5rem;
+
+  &__animation rect {
+    transform-origin: bottom;
+    animation: audio-bar 1000ms ease-in-out var(--audio-delay) infinite paused;
+
+    [data-audio-state='playing'] & {
+      animation-play-state: running;
+    }
+  }
+}
+
+@keyframes audio-bar {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(var(--audio-scale));
+  }
+}

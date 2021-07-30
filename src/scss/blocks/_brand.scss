@@ -1,0 +1,13 @@
+.brand {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: currentColor;
+
+  // An optical adjustment to account for the weird heights of this typeface
+  .dot {
+    transform: translateY(-0.2ex);
+  }
+}

@@ -1,0 +1,32 @@
+.site-foot {
+  padding: get-size('600') 0;
+
+  &__cta {
+    text-align: center;
+    padding: get-size('800') 0;
+    margin-bottom: get-size('600');
+
+    p {
+      margin-inline: auto;
+    }
+  }
+
+  &__inner {
+    border-bottom: 1px solid;
+
+    a {
+      text-decoration: none;
+    }
+
+    // Aligns the brand better
+    > :first-child {
+      transform: translateY(4px);
+    }
+  }
+
+  .circle-text {
+    position: absolute;
+    right: 0;
+    top: -150px;
+  }
+}

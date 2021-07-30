@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/",
+      "type": "primary"
+    },
+    {
+      "text": "Articles",
+      "url": "/blog-lander",
+      "type": "primary"
+    },
+    {
+      "text": "Careers",
+      "url": "#",
+      "type": "primary"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact",
+      "type": "primary"
+    },
+    {
+      "text": "Github",
+      "url": "#",
+      "type": "secondary"
+    },
+    {
+      "text": "Twitter",
+      "url": "#",
+      "type": "secondary"
+    }
+  ]
+}

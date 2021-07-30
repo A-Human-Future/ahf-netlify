@@ -1,0 +1,26 @@
+.circle-text {
+  text-transform: uppercase;
+  font-size: 43px; // We're using px because SVG aint diggin' clamp
+  width: 14rem;
+  height: 14rem;
+  transform: rotate(70deg);
+
+  @include apply-utility('font', 'mono');
+
+  text {
+    fill: get-color('secondary');
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: circle-spin 5000ms linear infinite;
+  }
+}
+
+@keyframes circle-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}

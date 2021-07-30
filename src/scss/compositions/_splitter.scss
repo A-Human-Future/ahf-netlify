@@ -1,0 +1,18 @@
+.splitter {
+  flex-wrap: wrap;
+
+  &,
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: $global-gutter;
+  }
+
+  @include media-query('md') {
+    &__group {
+      min-width: 15rem;
+      gap: clamp(#{$global-gutter}, 5rem, 10rem);
+    }
+  }
+}

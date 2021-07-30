@@ -1,0 +1,53 @@
+.image-overlay-decor {
+  position: relative;
+
+  picture {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      width: 85%;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+    }
+
+    &::after {
+      background: get-color('secondary');
+      mix-blend-mode: screen;
+      height: 40%;
+      top: 15%;
+    }
+  }
+
+  .circle-text {
+    position: absolute;
+    bottom: -4rem;
+    right: -5.5rem;
+  }
+
+  &[data-theme='primary'] {
+    picture {
+      img {
+        filter: contrast(110%) brightness(90%);
+      }
+
+      &::after {
+        background: get-color('primary');
+        mix-blend-mode: multiply;
+      }
+
+      &::before {
+        height: 10%;
+        bottom: 38%;
+        background: get-color('secondary');
+        mix-blend-mode: saturation;
+        filter: saturate(20%);
+        transform: translateX(-50%) skew(10deg);
+        z-index: 1;
+      }
+    }
+  }
+}

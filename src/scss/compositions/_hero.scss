@@ -1,0 +1,36 @@
+.hero {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: get-size('400') 0;
+  padding: get-size('300') 0 get-size('500') 0;
+
+  &__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  @include media-query('lg') {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0 $global-gutter;
+    min-height: 80vh;
+
+    &__title,
+    &__footer {
+      grid-column: 1/13;
+    }
+
+    &__summary {
+      grid-column: 8/13;
+
+      > * {
+        max-width: 28ch;
+      }
+    }
+
+    &__footer {
+      padding-top: get-size('600');
+    }
+  }
+}

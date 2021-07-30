@@ -1,0 +1,163 @@
+---
+title: 'Home'
+permalink: '/index.html'
+---
+
+{% extends "layouts/base.njk" %} 
+
+{% block content %}
+<div class="wrapper">
+  <article class="hero">
+    <h1 class="visually-hidden">A Human Future is a software development studio.</h1>
+    <div class="[ hero__title ] [ text-800 leading-flat ] [ fade-in ]" aria-hidden="true">
+      <em>A Human Future</em> 
+      <div class="glitch-text" data-text="is a software development studio.">is a software development studio.</div>
+    </div>
+    <div class="[ hero__summary ] [ flow flow-space-300 ]">
+      <p class="font-mono color-primary text-300 fade-in" aria-hidden="true" role="presentation">[Hello]</p>
+      <p class="fade-in">We build digital <em>products</em>, <em>platforms</em> and <em>prototypes</em> that help motivated organisations pull the future towards them, faster.</p>
+    </div>
+    <footer class="hero__footer">
+      <p class="font-mono color-primary text-300" aria-hidden="true" role="presentation">CBG & LDN & BER<sup>[2]</sup></p>
+      <button class="[ link-button ] [ text-300 box-hidden md:box-inline-block ]" data-terminal="mainTerminal">Launch Terminal _></button>
+      <dialog class="terminal" id="mainTerminal">
+        <div class="[ terminal__inner ] [ flow ] [ flow-space-300 ]">
+          <div class="[ terminal__header ] [ splitter ]">
+            <div class="[ brand ] [ text-300 ]" role="presentation" aria-hidden="true">
+              <span class="dot color-primary" role="presentation"></span>
+              <span>{{ site.name }}</span>
+            </div>
+            <button class="[ link-button ] [ font-mono text-300 color-primary ]" value="cancel">Close [x]</button>
+          </div>
+          <div class="text-300">
+            Tom pop ur terminal in here m8
+          </div>
+        </div>
+      </dialog>
+    </footer>
+  </article>
+</div>
+<div class="wrapper" data-type="narrow">
+  <article class="[ landing-page ] [ flow ]">
+    <div class="landing-page__content-pair landing-page__region">
+      <figure class="[ toggle-caption ] [ image-overlay-decor ] [ fade-in ]" data-theme="primary">
+        <picture class="toggle-caption__media">
+          <source srcset="/images/home-1.avif" type="image/avif" />
+          <source srcset="/images/home-1.webp" type="image/webp" />
+          <img src="/images/home-1.jpg" alt="Futuristic, dramatic image of man in an artistic style, designed to give the impression of humanity's interaction with technology." /> 
+        </picture>
+        <figcaption class="[ toggle-caption__content ] [ flow ] [ leading-flat flow-space-300 ]" data-direction="vertical" data-switch-text>
+          <button class="[ link-button ] [ font-mono text-300 color-light ]" aria-label="Translate" data-switch-trigger>[Translate]</button>
+          <p lang="ja" data-switch-content="A monk outside the gates can read scriptures never studied" data-switch-lang="en">門前の小僧習わぬ経を読む。</p>
+        </figcaption>
+      </figure> 
+      <section class="flow">
+        <h2 class="[ eyebrow ] [ fade-in ]">Who we are</h2>
+        <p class="fade-in">A Human Future is a remote team of software developers, user experience specialists and product development experts.  HQ is in Cambridge, England, but that’s usually not very important, because we are, indeed, Extremely Online.</p>
+        <p class="fade-in">The studio exists with a singular calling - to meet nasty digital problems with modern, elegant solutions - and launch brilliant products that help our clients grow quickly, intentionally, and safely.</p>
+        <div class="[ image-overlay-decor ] [ fade-in ]">
+          <picture class="flow-space-600">
+            <source srcset="/images/home-2.avif" type="image/avif" />
+            <source srcset="/images/home-2.webp" type="image/webp" />
+            <img src="/images/home-2.jpg" alt="Futuristic image of an old television with an eye peering out of it - designed to convey a  relationship between sentient technology and humanity." /> 
+          </picture>
+          {{ circleText('There’s a ghost in the machine', 'ghost-text')}}
+        </div>
+      </section>
+    </div>
+    <div class="landing-page__bridge">
+      <h2 class="[ eyebrow ] [ fade-in ]">What we do</h2> 
+      <p class="visually-hidden">We move fast & make things</p>
+      <div class="[ headline ] [ text-800 flow-space-400 ] [ fade-in ]" aria-hidden="true">
+        <span class="dot" role="presentation"></span>
+        <div>
+          <div class="glitch-text" data-text="We move fast &">We move fast &</div> 
+          <em>make things</em>
+        </div>
+      </div> 
+    </div>
+    <div class="[ landing-page__content-pair landing-page__region ] [ flow-space-800 ]">
+      <section class="flow">
+        <p class="fade-in">The best parts of the Internet are built by tiny teams of inventors, oddballs and misfits - motivated, ambitious and experienced enough to make sense of any mess.</p>
+        <p class="fade-in">It’s why we’re a small team by design and why the mission is purist, sharp and principled: Tight client circle, tricky, collaborative problems, and clean, unambiguous results.</p>
+        <p class="fade-in">Beyond that, we’re strongly committed to running an ethical, no-bullshit practice, and seek out the kinds of partners that let us underpin our work with that philosophy.  Technology isn’t the most important part of the future - the way that we wield it, is.</p>    
+      </section>
+      <figure class="[ toggle-caption ] [ fade-in ]">
+        <picture class="toggle-caption__media">
+          <source srcset="/images/home-3.avif" type="image/avif" />
+          <source srcset="/images/home-3.webp" type="image/webp" />
+          <img src="/images/home-3.jpg" alt="Soft focus lights, like fairy lights, on a dark background." /> 
+        </picture>
+        <figcaption class="[ toggle-caption__content ] [ flow ] [ leading-flat flow-space-300 ]" data-switch-text>
+          <p data-switch-content="When eaten alone, even bream loses flavour" data-switch-lang="en">鯛も一人はうまからず</p>
+          <button class="[ link-button ] [ font-mono text-300 color-light ]" aria-label="Translate" data-switch-trigger>[Translate]</button>
+          <svg class="box-hidden md:box-block" width="277" height="18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M.825 3.275H3v4.2h4.215v-4.2H9.39V14H7.215V9.275H3V14H.825V3.275zM268.825 3.275h7.68V5.12H271V7.7h4.665v1.86H271V14h-2.175V3.275z" fill="#00FF19"/>
+            <path stroke="#00FF19" stroke-width="2" d="M22 1h233v16H22z"/>
+            <path fill="#00FF19" d="M21 12h235v2H21zM21 8h235v2H21zM21 4h235v2H21z"/>
+          </svg>
+        </figcaption>
+      </figure> 
+    </div>
+    <marquee>
+      <ul>
+        <li>Freshly baked webapps here</li>
+        <li>Now booking for Q4 2021</li> 
+        <li>Freshly baked webapps here</li>
+        <li>Now booking for Q4 2021</li> 
+        <li>Freshly baked webapps here</li>
+        <li>Now booking for Q4 2021</li> 
+        <li>Freshly baked webapps here</li>
+        <li>Now booking for Q4 2021</li> 
+      </ul>
+    </marquee>
+    <div class="landing-page__bridge">
+      <h2 class="[ eyebrow ] [ fade-in ]">How we get it done</h2> 
+      <p class="visually-hidden">Care is the motive and impact is the mission.</p>
+      <div class="[ headline ] [ text-800 flow-space-400 ] [ fade-in ]">
+        <span class="dot" role="presentation"></span>
+        <div>
+          <em>Care is the motive</em>
+          <div class="glitch-text" data-text="& impact is the mission.">& impact is the mission.</div>
+        </div>
+      </div> 
+    </div>
+    <div class="landing-page__region landing-page__content-pair">
+      <div class="fade-in">
+        <a class="button text-500" href="/contact">Available to hire!</a>
+      </div>
+      <section class="flow">
+        <p class="fade-in">We build products, websites, platforms and apps in sectors like consultancy, data science and logistics. It’s knotty work that takes care and consideration - in plan, execution and delivery.</p>
+        <p class="fade-in">What our clients do is complex, but what they have in common is simple. They want to build lean, tough, agile products to inspirational quality.</p>
+      </section>
+    </div>
+    <h2 class="[ eyebrow ] [ fade-in ]">Tools & toys</h2>
+    <div class="landing-page__close-out">
+      <div class="[ headline ] [ text-800 flow-space-400 ] [ fade-in ]" aria-hidden="true">
+        <span class="dot" role="presentation"></span>
+        <div>
+          <span class="glitch-text" data-text="Techno-">Techno-</span><br /><span class="glitch-text" data-text="babble.">babble.</span>
+        </div>
+      </div> 
+      <section class="flow">
+        <p class="fade-in">We’re a speciality Python & Django house, but we work with all sorts of other tools too - whatever’s the most appropriate for each project’s problem space.</p>
+        <p class="fade-in">And we’re real champions of open-source - so your products have low running costs, are easy to extend, and can be supported by an expert community into the long-term.</p> 
+      </section>
+      <aside class="flow">
+        <p class="[ font-mono color-primary text-300 tt-upper ] [ fade-in ]" aria-hidden="true" role="presentation">Tech <sup>[9]</sup></p>
+        <ul role="list" class="[ text-500 flow-space-300 ] [ fade-in ]">
+         <li>Python</li>
+         <li>Django</li>
+         <li>HTML5</li>
+         <li>CSS & SCSS</li>
+         <li>ReactJS</li>
+         <li>PostgreSQL</li>
+         <li>Docker</li>
+         <li>Digital Ocean</li>
+         <li>Netlify</li>
+       </ul>
+     </aside>
+   </div>
+  </article>
+</div>
+{% endblock %}

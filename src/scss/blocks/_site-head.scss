@@ -1,0 +1,24 @@
+.site-head {
+  --site-head-space: 1rem;
+  line-height: 1;
+  background: rgba(get-color('light'), 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-bottom: get-size('400');
+  overflow: hidden;
+
+  [data-burger-menu-status='open'] & {
+    overflow: unset;
+  }
+
+  &__inner {
+    padding-top: var(--site-head-space);
+    padding-bottom: var(--site-head-space);
+    border-bottom: 1px solid;
+  }
+
+  .brand {
+    transform: translateY(3px); // Optical adjustment
+  }
+}

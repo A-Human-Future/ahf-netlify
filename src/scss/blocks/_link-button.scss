@@ -1,0 +1,15 @@
+.link-button {
+  display: inline;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  text-decoration: underline;
+  background: transparent;
+  color: get-color('secondary');
+
+  -webkit-appearance: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

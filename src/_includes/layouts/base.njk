@@ -1,0 +1,58 @@
+{% set assetHash = global.random() %}
+
+{% macro circleText(text, id) %}
+<svg class="[ circle-text ] [ box-hidden md:box-block ]" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+  <defs>
+    <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="{{ id }}">
+    </path>
+  </defs>
+  <text textLength="1220">
+    <textPath xlink:href="#{{ id }}">{{ text }}</textPath>
+  </text>
+</svg>
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    {% include "partials/meta-info.njk" %}
+
+    <link rel="stylesheet" href="/css/global.css?{{ assetHash }}" />
+    <link rel="stylesheet" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'" />
+
+    {# Add facility for pages to declare an array of stylesheet paths #}
+    {% if pageStylesheets %}
+      {% for item in pageStylesheets %}
+        <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'" />
+      {% endfor %}
+    {% endif %}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/images/icons/site.webmanifest">
+    <link rel="mask-icon" href="/images/icons/safari-pinned-tab.svg" color="#00ff19">
+    <link rel="shortcut icon" href="/images/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+  </head>
+  <body class="{{ bodyTokens }}">
+    {% include "partials/site-head.njk" %}
+
+    <main tabindex="-1" id="main-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    {% include "partials/site-foot.njk" %}
+
+    <script src="/js/audio-player.js?{{ assetHash }}" defer type="module"></script>
+    <script src="/js/burger-menu.js?{{ assetHash }}" defer type="module"></script>
+    <script src="/js/fade-in.js?{{ assetHash }}" defer type="module"></script>
+    <script src="/js/switch-text.js?{{ assetHash }}" defer type="module"></script>
+    <script src="/js/terminal.js?{{ assetHash }}" defer type="module"></script>
+  </body>
+</html>

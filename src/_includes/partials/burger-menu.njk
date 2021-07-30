@@ -1,0 +1,14 @@
+{% if page.url == '/contact/' %}
+  {% set theme = 'secondary' %}
+{% endif %}
+<burger-menu nav-count="{{ navigation.items | length }}" class="wrapper" theme="{{ theme }}">
+  <nav aria-label="primary">
+    <ul role="list" class="burger-menu__nav">
+      {% for item in navigation.items %}
+      <li data-type="{{ item.type }}">
+        <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</burger-menu>

@@ -1,0 +1,13 @@
+.dot {
+  display: block;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  border-radius: 100%;
+
+  // If no color util added, set to primary by default
+  &:not([class*='color-']) {
+    background: get-color('primary');
+  }
+}

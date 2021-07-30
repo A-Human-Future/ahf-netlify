@@ -1,0 +1,16 @@
+/**
+ * WRAPPER
+ * Sets a max width, adds a consisten gutter and horizontally
+ * centers the contents
+ */
+.wrapper {
+  max-width: 95rem;
+  padding-inline: $global-gutter;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  &[data-type='narrow'] {
+    max-width: 82rem;
+  }
+}

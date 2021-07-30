@@ -1,0 +1,16 @@
+.form-group {
+  // Adds a line break without affecting inline status: https://piccalil.li/quick-tip/inline-line-break/
+  label {
+    padding-inline-start: 1em;
+    &::after {
+      content: '\A';
+      white-space: pre;
+    }
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+  }
+}

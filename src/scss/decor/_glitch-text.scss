@@ -1,0 +1,54 @@
+// A modified version of this classic by chris: https://css-tricks.com/glitch-effect-text-images-svg/
+.glitch-text {
+  @media (prefers-reduced-motion: no-preference) {
+    position: relative;
+
+    &::before {
+      content: attr(data-text);
+      position: absolute;
+      left: -2px;
+      text-shadow: 1px 0 get-color('secondary');
+      top: 0;
+      background: white;
+      overflow: hidden;
+      animation: glitch-2 15s infinite linear alternate-reverse;
+    }
+
+    &::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 2px;
+      text-shadow: -1px 0 get-color('primary');
+      top: 0;
+      background: white;
+      overflow: hidden;
+      animation: glitch 2s infinite linear alternate-reverse;
+    }
+  }
+}
+
+@keyframes glitch {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      $topWithPercent: $top * 1%;
+      $bottomWithPercent: $bottom * 1%;
+      clip-path: inset(#{$topWithPercent} 0 #{$bottomWithPercent} 0);
+    }
+  }
+}
+
+@keyframes glitch-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      $topWithPercent: $top * 1%;
+      $bottomWithPercent: $bottom * 1%;
+      clip-path: inset(#{$topWithPercent} 0 #{$bottomWithPercent} 0);
+    }
+  }
+}

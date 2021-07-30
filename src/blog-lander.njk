@@ -1,0 +1,39 @@
+---
+title: 'Blog'
+---
+
+{% extends "layouts/base.njk" %}
+
+{% block content %}
+<h1 class="visually-hidden">Blog</h1>
+<div class="[ blog-landing-page ] [ wrapper ]">
+  <nav class="sidebar" aria-label="blog posts">
+    <div class="blog-landing-page__featured">
+      <a href="/blog-post" class="[ post-item ] [ flow ] [ flow-space-300 ]">
+        <img src="https://source.unsplash.com/random/800x600" alt="" />
+        <div class="post-item__header">
+          <h2 class="text-600">20 Things I Wish I Knew When I Started Programming</h2>
+          <time datetime="2021-06-11" class="text-300">11 June 2021</time>
+        </div>
+        <p>If you could go back in time to when you started programming, what tips would you give to yourself?</p>
+      </a>
+    </div>
+    <div class="[ blog-landing-page__sidebar ] [ flow ] [ flow-space-400 ]">
+      <h2 class="text-500">More stories</h2>
+      <ul class="[ blog-landing-page__items ] [ flow ]" role="list">
+      {% for item in posts.items %}
+        <li>
+          <a href="/blog-post" class="post-item" data-layout="inline">
+            <img src="https://source.unsplash.com/random/500x300" alt="" />
+            <div class="post-item__header">
+              <h3 class="text-400">{{ item.title }}</h3>
+              <time datetime="2021-06-11" class="text-300">11 June 2021</time>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>
+{% endblock %}
