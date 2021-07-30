@@ -39,6 +39,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-config" content="/images/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
   </head>
   <body class="{{ bodyTokens }}">
     {% include "partials/site-head.njk" %}
@@ -49,11 +50,12 @@
 
     {% include "partials/site-foot.njk" %}
 
-    <script src="/js/miniterm.js?{{ assetHash }}" defer type="module"></script>
     <script src="/js/audio-player.js?{{ assetHash }}" defer type="module"></script>
     <script src="/js/burger-menu.js?{{ assetHash }}" defer type="module"></script>
     <script src="/js/fade-in.js?{{ assetHash }}" defer type="module"></script>
     <script src="/js/switch-text.js?{{ assetHash }}" defer type="module"></script>
     <script src="/js/terminal.js?{{ assetHash }}" defer type="module"></script>
+    <script src="/js/miniterm.js?{{ assetHash }}" defer type="module"></script>
+
   </body>
 </html>

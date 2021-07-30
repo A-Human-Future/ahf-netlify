@@ -1,5 +1,4 @@
-window.onload = (event) => {
-
+window.onload = function() {
   let machineName = 'curious-stranger@www ~ $ ';
   let terminalHistoryLog = [];
   let cursorLogPosition = terminalHistoryLog.length;
@@ -74,29 +73,19 @@ window.onload = (event) => {
     },
     {
       'name': '>> Requirements definition, system design and technical specification'
-    },
+    }
   ];
 
   /* Content for the whois command. Designed to be a string of any length */
-  const whoisContent = "<p>>> A Human Future is a software design and development " +
-    "consultancy based in Cambridge and London, UK. We specialise in designing " +
-    "and building high-performing, highly usable software platforms and user experiences " +
-    "designed to help humans better relate to the technologies they live and work with. " +
-    "You can find us at the command line all over Europe, often at weird hours.</p>";
+  const whoisContent = '<p>>> A Human Future is a software design and development ' +
+    'consultancy based in Cambridge and London, UK. We specialise in designing ' +
+    'and building high-performing, highly usable software platforms and user experiences ' +
+    'designed to help humans better relate to the technologies they live and work with. ' +
+    'You can find us at the command line all over Europe, often at weird hours.</p>';
 
   const githubContent = '<p>- >> MINITERM ON GITHUB << -</p>' +
     '<p>Miniterm is an open-source project by AHF. Get your own, today! <a href="https://github.com/thmsrmbld/miniterm"target="_blank">' +
     'miniterm.github</a></p>';
-
-  const initialisePage = () => {
-    /* Initialises the page. We just sequentially load in the initial page
-     elements. We could do this with CSS, but ...here we are) */
-    setTimeout(mockLogin, 400);
-    setTimeout(mockCommands, 1000);
-    setTimeout(loadUserInput, 1400);
-    setTimeout(commandListener, 1600);
-  };
-
 
   const commandListener = () => {
     /* Main command listener - processes and runs the keyboard input */
@@ -347,20 +336,19 @@ window.onload = (event) => {
   const mockLogin = () => {
     /* Micro function for mocking the 'login' process, called on first page
      load timer */
+    let loginTimeDiv = document.getElementsByClassName('login-time')[0];
     let todaysDate = new Date();
-    document.getElementsByClassName('login-time')[0].innerHTML = "curious stranger, on ttys001 @ " + todaysDate.toLocaleString() + " >>";
+    loginTimeDiv = 'curious stranger, on ttys001 @ ' + new Date().toLocaleString() + ' >>';
   };
 
   const mockCommands = () => {
-    /* Micro function for showing which commands are available, called on
-     first page load timer */
-    const instructionText = ">> 'ls' lists commands. ⬆ & ⬇ arrows" +
-      " cycle cmd history. Let's play. <<<";
-    document.getElementsByClassName('command-list')[0].innerHTML = instructionText;
+    /* Micro function for showing which commands are available, called on first page load timer */
+    document.getElementsByClassName('command-list')[0].innerHTML = '>> \'ls\' lists commands. ⬆ & ⬇ arrows cycle cmd history. Let\'s play. <<<';
   };
 
   const loadUserInput = () => {
     /* Colors the terminal input element and creates the input on load */
+    terminalContainer = document.getElementsByClassName('terminal-container')[0];
     terminalContainer.style.backgroundColor = 'rgba(0, 255, 0, 0.06)';
     let userInput = document.createElement('input');
     userInput.setAttribute('type', 'text');
@@ -369,6 +357,17 @@ window.onload = (event) => {
     document.getElementsByClassName('machine-name')[0].innerHTML = machineName;
     terminalContainer.appendChild(userInput);
   };
+
+  const initialisePage = () => {
+    /* Initialises the page. We just sequentially load in the initial page
+     elements. We could do this with CSS, but ...here we are) */
+    setTimeout(mockLogin, 4000);
+    setTimeout(mockCommands, 4000);
+    setTimeout(loadUserInput, 4000);
+    setTimeout(commandListener, 4000);
+  };
+
+
   /* Just calls and runs the whole system :) */
   initialisePage();
 };
