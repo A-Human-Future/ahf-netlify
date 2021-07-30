@@ -10,29 +10,30 @@ bodyTokens: 'bg-primary'
 {% extends "layouts/base.njk" %}
 
 {% block content %}
-<div class="[ contact-page ] [ wrapper flow ]" data-type="narrow">
-  <h1>Let’s talk.</h1>
-  <p class="font-mono flow-space-300">We’re currently booking new projects for Q4 2021.</p>
-  <form class="flow" netlify>
-    <div class="form-group">
-      <label for="name">Your full name</label>
-      <input type="text" id="name" />
+    <div class="[ contact-page ] [ wrapper flow ]" data-type="narrow">
+        <h1>Let’s talk.</h1>
+        <p class="font-mono flow-space-300">We’re currently booking new projects
+            for Q4 2021.</p>
+        <form class="flow" netlify>
+            <div class="form-group">
+                <label for="name">Your name <span class="color-light">*</span></label>
+                <input type="text" id="name" required/>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address <span class="color-light">*</span></label>
+                <input type="email" id="email" required/>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telephone number</label>
+                <input type="tel" id="phone" />
+            </div>
+            <div class="form-group">
+                <label for="deets">What do we wanna build? <span class="color-light">*</span></label>
+                <textarea required rows="10" id="deets" placeholder="The more detail you can provide the better, but we can chat it out if you need help getting it right."></textarea>
+            </div>
+            <div class="[ ta-right ]">
+                <input class="[ link-button ] [ font-mono tt-upper ]" type="submit" value="send message">
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="email">Your email address</label>
-      <input type="email" id="email" />
-    </div>
-    <div class="form-group">
-      <label for="phone">Your phone number</label>
-      <input type="tel" id="phone" />
-    </div>
-    <div class="form-group">
-      <label for="deets">What are you building?</label>
-      <textarea rows="10" id="deets" placeholder="The more detail you can provide, the better."></textarea>
-    </div>
-    <div class="[ form-group ] [ ta-right ]">
-      <button class="[ link-button ] [ font-mono tt-upper ]">Send message</button>
-    </div>
-  </form>
-</div>
 {% endblock %}

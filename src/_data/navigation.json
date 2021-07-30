@@ -6,11 +6,6 @@
       "type": "primary"
     },
     {
-      "text": "Articles",
-      "url": "/articles",
-      "type": "primary"
-    },
-    {
       "text": "Contact",
       "url": "/contact",
       "type": "primary"
