@@ -1,0 +1,100 @@
+/* Table classes */
+table {
+  font-size: 14px;
+}
+
+table.skTable {
+  width: 90%;
+  font-size: inherit;
+}
+
+table.mnTable {
+  width: 90%;
+  font-size: inherit;
+}
+
+td {
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+}
+
+/* General containers */
+.miniterm-container {
+  padding-top: 4px;
+  height: calc(100% - 30px);
+  overflow: auto;
+  width: calc(100% - 2px);
+}
+
+.display-row {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  padding: 2px 15px 4px 10px;
+  color: inherit;
+  max-width: 750px;
+}
+
+.output-row {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  padding: 2px 15px 4px 10px;
+  color: inherit;
+  max-width: 750px;
+  font-family: Courier, serif;
+}
+
+.input-row {
+  margin-bottom: 2px;
+  margin-top: 2px;
+  padding-left: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: inherit;
+}
+
+.terminal-container {
+  font-family: Courier, serif;
+  padding-bottom: 5px;
+}
+
+/* Green highlight */
+.green-hl {
+  color: limegreen;
+}
+
+/* Terminal & input classes */
+.terminal-input .input:focus {
+  font-family: Courier, serif;
+  display: none;
+  position: absolute;
+  height: 80%;
+  top: 10%;
+  animation-name: blink;
+  animation-duration: 0.6s;
+  animation-iteration-count: infinite;
+  opacity: 1;
+}
+
+.input-row > input[type=text] {
+  font-family: Courier, serif;
+  background-color: transparent;
+  font-size: 14px;
+  outline: none;
+  width: 25%;
+  color: limegreen;
+  border: 0;
+  height: 20px;
+  padding: 0;
+  margin-bottom: 0.35rem;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
