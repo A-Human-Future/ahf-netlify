@@ -7,12 +7,7 @@
     },
     {
       "text": "Articles",
-      "url": "/blog-lander",
-      "type": "primary"
-    },
-    {
-      "text": "Careers",
-      "url": "#",
+      "url": "/articles",
       "type": "primary"
     },
     {
@@ -21,13 +16,8 @@
       "type": "primary"
     },
     {
-      "text": "Github",
-      "url": "#",
-      "type": "secondary"
-    },
-    {
       "text": "Twitter",
-      "url": "#",
+      "url": "https://twitter.com/toahumanfuture",
       "type": "secondary"
     }
   ]
