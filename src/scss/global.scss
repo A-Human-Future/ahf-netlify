@@ -164,7 +164,8 @@ marquee {
 @import 'decor/fade-in';
 @import 'decor/glitch-text';
 @import 'decor/image-overlay-decor';
-@import 'decor/miniterm.scss';
+@import 'decor/miniterm';
+@import 'decor/blink';
 
 // Import blocks
 @import 'blocks/audio-toggle';
