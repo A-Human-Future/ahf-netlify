@@ -1,21 +1,14 @@
 let machineName = 'curious-stranger@www ~ $ ';
 let terminalHistoryLog = [];
 let cursorLogPosition = terminalHistoryLog.length;
-const userBirthday = '01/01/2000';
 
 /* Set some core DOM items */
-let hero = document.getElementsByClassName('hero')
-
-let currentTerminalDiv;
-let terminalContainer;
-currentTerminalDiv = document.getElementsByClassName('terminal-container')[0];
-terminalContainer = document.getElementsByClassName('terminal-container')[0];
+let currentTerminalDiv = document.getElementsByClassName('terminal-container')[0];
+let terminalContainer = document.getElementsByClassName('terminal-container')[0];
 let siteContainer = document.getElementsByClassName('miniterm-container')[0];
-
 /* These count the number of tables of a certain type present in the DOM */
-let skiTableCount;
-let expTableCount;
-let manTableCount = expTableCount = skiTableCount = 0;
+let skiTableCount = 0;
+let manTableCount = 0;
 
 /* A structure of system commands used for the man pages and valid command list */
 const commandData = [
@@ -33,7 +26,7 @@ const commandData = [
   },
   {
     'name': 'github',
-    'description': 'Provides a link to the source code for this terminal project.'
+    'description': 'Provides a link to the source for this terminal project.'
   },
   {
     'name': 'history',
@@ -71,22 +64,23 @@ const skillsData = [
     'name': '>> Full-stack web app design & build'
   },
   {
-    'name': '>> Software strategy & engineering consultancy'
+    'name': '>> Software strategy & consultancy'
   },
   {
-    'name': '>> Requirements definition, system design and technical specification'
+    'name': '>> Requirements definition and technical specification'
   }
 ];
 
 /* Content for the whois command. Designed to be a string of any length */
-const whoisContent = '<p>>> A Human Future is a software design and development ' +
+const whoisContent = '<p>A Human Future is a software design and development ' +
   'consultancy based in Cambridge and London, UK. We specialise in designing ' +
   'and building high-performing, highly usable software platforms and user experiences ' +
   'designed to help humans better relate to the technologies they live and work with. ' +
+  'designed to help humans better relate to the technologies they live and work with. ' +
   'You can find us at the command line all over Europe, often at weird hours.</p>';
 
-const githubContent = '<p>- >> MINITERM ON GITHUB << -</p>' +
-  '<p>Miniterm is an open-source project by AHF. Get your own, today! <a href="https://github.com/thmsrmbld/miniterm"target="_blank">' +
+const githubContent = '<p>Miniterm is a tiny open-source project by AHF. ' +
+  'Get your own, today! <a href="https://github.com/thmsrmbld/miniterm"target="_blank">' +
   'miniterm.github</a></p>';
 
 const commandListener = () => {
@@ -171,7 +165,7 @@ const commandListener = () => {
       /* Finally, force a reset and re-focus of terminal input field */
       userInput.value = '';
       userInput.focus();
-      terminalContainer.scrollIntoView(false);
+      terminalContainer.scrollIntoView(true);
     }
   });
 };
@@ -185,39 +179,17 @@ const setPrevLine = (rawInput) => {
   siteContainer.insertBefore(previousLineDiv, currentTerminalDiv);
 };
 
-const uptimePrinter = () => {
-  /* Prints how long you've been alive in days since your birthday */
-  let duration = new Date(userBirthday);
-  let todaysDate = new Date();
-  let daysDelta = todaysDate.getTime() - duration.getTime();
-  daysDelta = daysDelta / (1000 * 3600 * 24);
-  let timeNow = new Date().toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit'
-  });
-
-  /* To display the final uptime */
-  let uptimeDiv = document.createElement('p');
-  uptimeDiv.setAttribute('class', 'ag output-row');
-  uptimeDiv.innerHTML = timeNow + ' up ' + Math.round((daysDelta + Number.EPSILON) * 100) + ' days, 1 user, load averages: 5.24 5.18 5.42';
-  siteContainer.insertBefore(uptimeDiv, currentTerminalDiv);
-};
-
 const skillsPrinter = (skillsData) => {
   /* Prints a list of skills to screen */
   skiTableCount += 1;
-
   /* Build title */
   let skillsStart = document.createElement('div');
   skillsStart.setAttribute('class', 'ag output-row');
   siteContainer.insertBefore(skillsStart, currentTerminalDiv);
-
   /* Build table */
   let skillsTable = document.createElement('table');
-  skillsTable.setAttribute('class', 'skTb' + skiTableCount + ' ag skTable' +
-    ' output-row');
+  skillsTable.setAttribute('class', 'skTb' + skiTableCount + ' ag skTable output-row');
   siteContainer.insertBefore(skillsTable, currentTerminalDiv);
-
   let skTable = document.getElementsByClassName('skTb' + skiTableCount)[0];
   let tdData = Object.keys(skillsData);
   generateTable(skTable, skillsData);
@@ -228,7 +200,6 @@ const generateTable = (table, data) => {
   consumes a data structure and spits out a HTML table.*/
   for (let element of data) {
     let row = table.insertRow();
-
     for (let key in element) {
       let cell = row.insertCell();
       let textContent = document.createTextNode(element[key]);
@@ -240,11 +211,10 @@ const generateTable = (table, data) => {
 const manPrinter = (commandData) => {
   /* Prints man-pages to screen */
   manTableCount += 1;
-
   /* Build title */
   let manStart = document.createElement('div');
   manStart.setAttribute('class', 'ag output-row');
-  manStart.innerHTML = ' --- BSD General Commands Manual --- ';
+  manStart.innerHTML = ' -- AHF MT Commands Manual -- ';
   siteContainer.insertBefore(manStart, currentTerminalDiv);
 
   /* Build table */
@@ -252,7 +222,6 @@ const manPrinter = (commandData) => {
   manTable.setAttribute('class', 'mnTb' + manTableCount + ' ag mnTable' +
     ' output-row');
   siteContainer.insertBefore(manTable, currentTerminalDiv);
-
   let mnTable = document.getElementsByClassName('mnTb' + manTableCount)[0];
   generateTable(mnTable, commandData);
   siteContainer.insertBefore(mnTable, currentTerminalDiv);
@@ -298,10 +267,9 @@ const commandPrinter = (commandData) => {
 };
 
 const commandNotFoundPrinter = (userInput, rawInput) => {
-  /* We need to create two line outputs to emulate bash (the error is an
-   extra line */
+  /* We need to create two line outputs to emulate bash (the error is an extra line */
   let commandNotFoundDiv = document.createElement('div');
-  commandNotFoundDiv.innerHTML = '-bash: ' + rawInput + ': command not found';
+  commandNotFoundDiv.innerHTML = '-bash: ' + rawInput + ': sorry, command not found.';
   commandNotFoundDiv.setAttribute('class', 'ag output-row');
   siteContainer.insertBefore(commandNotFoundDiv, currentTerminalDiv);
 };
@@ -332,24 +300,24 @@ const clearTerminal = () => {
     agLines[0].parentNode.removeChild(agLines[0]);
   }
   /* Null the count of active tables now in the DOM, cause they're all gone */
-  expTableCount = skiTableCount = manTableCount = 0;
+  skiTableCount = manTableCount = 0;
 };
 
 const mockLogin = () => {
   /* Micro function for mocking the 'login' process, called on first page load timer */
   let loginTimeDiv = document.getElementsByClassName('login-time')[0];
-  loginTimeDiv.innerHTML = 'curious stranger, on ttys001 @ ' + new Date().toLocaleString() + ' >>';
+  loginTimeDiv.innerHTML = '>> curious stranger, on ttys001 @ ' + new Date().toLocaleString();
 };
 
 const mockCommands = () => {
   /* Micro function for showing which commands are available, called on first page load timer */
-  document.getElementsByClassName('command-list')[0].innerHTML = '>> \'ls\' lists commands. ⬆ & ⬇ arrows cycle cmd history. Let\'s play. <<<';
+  document.getElementsByClassName('command-list')[0].innerHTML = '> \'ls\' lists cmds. ⬆ & ⬇ arrows cycle cmd history. Let\'s play.';
 };
 
 const loadUserInput = () => {
   /* Colors the terminal input element and creates the input on load */
   terminalContainer = document.getElementsByClassName('terminal-container')[0];
-  terminalContainer.style.backgroundColor = 'rgba(0, 255, 0, 0.06)';
+  terminalContainer.style.backgroundColor = 'rgba(0, 255, 0, 0.09)';
   let userInput = document.createElement('input');
   userInput.setAttribute('type', 'text');
   userInput.setAttribute('class', 'terminal-input');

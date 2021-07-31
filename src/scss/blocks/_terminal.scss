@@ -7,12 +7,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  border: 0;
   background: none;
   padding: 0;
   margin: 0;
   overflow: scroll;
   border-radius: 1%;
+  border: 0;
+
 
   &[open] {
     display: flex;
@@ -24,7 +25,11 @@
     position: relative;
     background: get-color('dark');
     color: get-color('light');
-    padding: $global-gutter;
+    //padding: $global-gutter;
+    padding-top: 1.4rem;
+    padding-right: 1.4rem;
+    padding-left: 1.4rem;
+    padding-bottom: 0.85rem;
     flex-grow: 1;
     z-index: 1;
   }

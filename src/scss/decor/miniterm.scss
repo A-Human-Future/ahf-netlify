@@ -19,8 +19,13 @@ td {
   padding-bottom: 4px;
 }
 
+.machine-name {
+  font-family: "Roboto Mono", monospace;
+}
+
 /* General containers */
 .miniterm-container {
+  font-family: "Roboto Mono", monospace;
   padding-top: 4px;
   height: calc(100% - 30px);
   overflow: auto;
@@ -36,36 +41,41 @@ td {
 }
 
 .output-row {
+  font-family: "Roboto Mono", monospace;
   margin-bottom: 2px;
   margin-top: 2px;
-  padding: 2px 15px 4px 10px;
+  padding-top: 2px;
+  padding-left: 4px;
+  padding-bottom: 4px;
   color: inherit;
   max-width: 750px;
-  font-family: Courier, serif;
 }
 
 .input-row {
-  margin-bottom: 2px;
-  margin-top: 2px;
-  padding-left: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 4px;
+  padding-top: 6px;
+  padding-bottom: 3px;
   color: inherit;
+  border-top: 1px solid orange;
+  border-bottom: 1px solid orange;
 }
 
 .terminal-container {
-  font-family: Courier, serif;
+  font-family: "Roboto Mono", monospace;
   padding-bottom: 5px;
 }
 
 /* Green highlight */
 .green-hl {
-  color: limegreen;
+  color: get-color('primary');
 }
 
 /* Terminal & input classes */
 .terminal-input .input:focus {
-  font-family: Courier, serif;
+  font-family: "Roboto Mono", monospace;
   display: none;
   position: absolute;
   height: 80%;
@@ -77,24 +87,13 @@ td {
 }
 
 .input-row > input[type=text] {
-  font-family: Courier, serif;
+  font-family: "Roboto Mono", monospace;
   background-color: transparent;
   font-size: 14px;
   outline: none;
-  width: 25%;
-  color: limegreen;
+  width: 60%;
+  color: get-color('primary');
   border: 0;
   height: 20px;
   padding: 0;
-  margin-bottom: 0.35rem;
-}
-
-@keyframes blink {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-  }
 }
