@@ -15,12 +15,12 @@
   const setState = value => {
     switch (value) {
       case 'playing':
-        label.innerText = 'Audio on';
+        label.innerText = 'Pause Audio';
         state.audio = 'playing';
         parent.setAttribute('data-audio-state', 'playing');
         break;
       case 'paused':
-        label.innerText = 'Audio off';
+        label.innerText = 'Play Audio';
         state.audio = 'paused';
         parent.setAttribute('data-audio-state', 'paused');
         break;

@@ -1,35 +1,42 @@
-<footer role="contentinfo" class="[ site-foot ] [ text-300 bg-primary gap-top-800 ]">
-  {% if siteFootDecor != false %}
-  <div class="wrapper">
-    {{ circleText('Signals in the static, communiques in the attic', 'footer-circle')}}
-  </div>
-  {% endif %}
- 
-  <!-- CTA starts -->
-  <!-- If you want to turn this CTA on and off, here's the wrapper for it -->
-  {% if siteFootCTA != false %}
-  <div class="[ site-foot__cta ] [ wrapper ] [ flow ]">
-    <h2 class="text-800">Hit us up,</h2>
-    <div class="flow-space-400"><a href="/contact" class="[ button ] [ text-500 border-light ]">Get in touch.</a></div>
-    <div><a class="font-mono text-400" href="mailto:{{ site.email }}">{{ site.email }}</a></div>
-  </div>
-  {% endif %}
-  <!-- CTA ends -->
+<footer role="contentinfo"
+        class="[ site-foot ] [ text-300 bg-primary gap-top-800 ]">
+    {% if siteFootDecor != false %}
+        <div class="wrapper">
+            {{ circleText('Signals in the static, communiques in the attic', 'footer-circle') }}
+        </div>
+    {% endif %}
 
-  <div class="[ site-foot__inner ] [ splitter ] [ wrapper ]">
-    <div class="line-highlight" data-position="top">
-      <a href="/" class="[ brand ] [ pad-bottom-300 ]">
-        <span class="[ dot ] [ color-light ]" role="presentation"></span>
-        <span>{{ site.name }}</span>
-      </a>
+    <!-- CTA starts -->
+    <!-- If you want to turn this CTA on and off, here's the wrapper for it -->
+    {% if siteFootCTA != false %}
+        <div class="[ site-foot__cta ] [ wrapper ] [ flow ]">
+            <h2 class="text-800">Hit us up,</h2>
+            <div class="flow-space-400"><a href="/contact"
+                                           class="[ button ] [ text-500 border-light ]">Get
+                    in touch.</a></div>
+            <div><a class="font-mono text-400"
+                    href="mailto:{{ site.email }}">{{ site.email }}</a></div>
+        </div>
+    {% endif %}
+    <!-- CTA ends -->
+
+    <div class="[ site-foot__inner ] [ splitter ] [ wrapper ]">
+        <div class="line-highlight" data-position="top">
+            <a href="/" class="[ brand ] [ pad-bottom-300 ]">
+                <span class="[ dot ] [ color-light ]"
+                      role="presentation"></span>
+                <span>{{ site.name }}</span>
+            </a>
+        </div>
+        <div class="splitter__group">
+            <div class="line-highlight" data-position="top">
+                <div class="pad-bottom-300">♪ Tiergarten,
+                  <a class="[ link-plain ]" href='https://soundcloud.com/opekkt' target='_blank'>Óþekkt</a>
+                </div>
+            </div>
+            <div class="line-highlight" data-position="top">
+                <div class="pad-bottom-300">© AHF 2021</div>
+            </div>
+        </div>
     </div>
-    <div class="splitter__group">
-      <div class="line-highlight" data-position="top">
-        <a href="/contact" class="box-block color-dark pad-bottom-300">♪ Tiergarten, Óþekkt</a>
-      </div>
-      <div class="line-highlight" data-position="top">
-        <div class="pad-bottom-300">© AHF 2021</div>
-      </div>
-    </div>
-  </div>
 </footer>
