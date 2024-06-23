@@ -73,9 +73,8 @@ const skillsData = [
 
 /* Content for the whois command. Designed to be a string of any length */
 const whoisContent = '<p>A Human Future is a software design and development ' +
-  'consultancy based in Cambridge and London, UK. We specialise in designing ' +
+  'consultancy based in London, UK. We specialise in designing ' +
   'and building high-performing, highly usable software platforms and user experiences ' +
-  'designed to help humans better relate to the technologies they live and work with. ' +
   'designed to help humans better relate to the technologies they live and work with. ' +
   'You can find us at the command line all over Europe, often at weird hours.</p>';
 
