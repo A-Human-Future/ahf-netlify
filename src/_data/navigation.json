@@ -9,11 +9,6 @@
       "text": "Contact",
       "url": "/contact",
       "type": "primary"
-    },
-    {
-      "text": "Twitter",
-      "url": "https://twitter.com/toahumanfuture",
-      "type": "secondary"
     }
   ]
 }
