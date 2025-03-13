@@ -13,97 +13,96 @@ let manTableCount = 0;
 /* A structure of system commands used for the man pages and valid command list */
 const commandData = [
   {
-    'name': 'ls',
-    'description': 'Lists the valid commands that the terminal will accept. Try some out!'
+    name: 'ls',
+    description: 'Lists the valid commands that the terminal will accept. Try some out!'
   },
   {
-    'name': 'whois',
-    'description': 'The whois utility lists general information.'
+    name: 'whois',
+    description: 'The whois utility lists general information.'
   },
   {
-    'name': 'skills',
-    'description': 'The skills utility lists skills information.'
+    name: 'skills',
+    description: 'The skills utility lists skills information.'
   },
   {
-    'name': 'github',
-    'description': 'Provides a link to the source for this terminal project.'
+    name: 'github',
+    description: 'Provides a link to the source for this terminal project.'
   },
   {
-    'name': 'history',
-    'description': 'The history utility lists all previous commands used within the current terminal session.'
+    name: 'history',
+    description:
+      'The history utility lists all previous commands used within the current terminal session.'
   },
   {
-    'name': 'man',
-    'description': 'The man utility is the command manual and provides a full list of system commands / descriptions.'
+    name: 'man',
+    description:
+      'The man utility is the command manual and provides a full list of system commands / descriptions.'
   },
   {
-    'name': 'clear',
-    'description': 'The clear utility clears all previous command output and resets the terminal session.'
+    name: 'clear',
+    description:
+      'The clear utility clears all previous command output and resets the terminal session.'
   },
   {
-    'name': 'contact',
-    'description': 'The contact utility provides a contact email address for AHF.'
+    name: 'contact',
+    description: 'The contact utility provides a contact email address for AHF.'
   },
   {
-    'name': 'exit',
-    'description': 'The exit utility leaves the website.'
+    name: 'exit',
+    description: 'The exit utility leaves the website.'
   }
 ];
 
 const skillsData = [
   {
-    'name': '>> Python & Django'
+    name: '>> Python & Django'
   },
   {
-    'name': '>> ReactJS & modern UI development'
+    name: '>> ReactJS & modern UI development'
   },
   {
-    'name': '>> API design & build'
+    name: '>> API design & build'
   },
   {
-    'name': '>> Full-stack web app design & build'
+    name: '>> Full-stack web app design & build'
   },
   {
-    'name': '>> Software strategy & consultancy'
+    name: '>> Software strategy & consultancy'
   },
   {
-    'name': '>> Requirements definition and technical specification'
+    name: '>> Requirements definition and technical specification'
   }
 ];
 
 /* Content for the whois command. Designed to be a string of any length */
-const whoisContent = '<p>A Human Future is a software design and development ' +
+const whoisContent =
+  '<p>A Human Future is a software design and development ' +
   'consultancy based in London, UK. We specialise in designing ' +
   'and building high-performing, highly usable software platforms and user experiences ' +
   'designed to help humans better relate to the technologies they live and work with. ' +
   'You can find us at the command line all over Europe, often at weird hours.</p>';
 
-const githubContent = '<p>Miniterm is a tiny open-source project by AHF. ' +
+const githubContent =
+  '<p>Miniterm is a tiny open-source project by AHF. ' +
   'Get your own, today! <a href="https://github.com/thmsrmbld/miniterm"target="_blank">' +
   'miniterm.github</a></p>';
 
 const commandListener = () => {
   /* Main command listener - processes and runs the keyboard input */
   let userInput = document.getElementsByClassName('terminal-input')[0];
-  userInput.addEventListener('keyup', function(event) {
-
+  userInput.addEventListener('keyup', function (event) {
     /* First, we handle the ArrowUp event (but only if the cursor isn't
      already at the start of the array). Then, we handle the ArrowDown
      event (only if the cursor isn't already at the end of the array). */
     if (event.key === 'ArrowUp' && cursorLogPosition > 1) {
       cursorLogPosition -= 1;
-      userInput.value = terminalHistoryLog.slice(
-        cursorLogPosition - 1
-      )[0];
+      userInput.value = terminalHistoryLog.slice(cursorLogPosition - 1)[0];
     }
     if (event.key === 'ArrowDown' && cursorLogPosition < terminalHistoryLog.length) {
       cursorLogPosition += 1;
-      userInput.value = terminalHistoryLog.slice(
-        cursorLogPosition - 1
-      )[0];
-    }
+      userInput.value = terminalHistoryLog.slice(cursorLogPosition - 1)[0];
+    } else if (event.key === 'Enter') {
     /* Otherwise, we handle the keyboard Enter event */
-    else if (event.key === 'Enter') {
       event.preventDefault();
       /* We need to transform the input for processing, but also
        want to store the raw data for later use */
@@ -169,7 +168,7 @@ const commandListener = () => {
   });
 };
 
-const setPrevLine = (rawInput) => {
+const setPrevLine = rawInput => {
   /* Get the relevant DOM objects, and set the content of the previous
    terminal line */
   let previousLineDiv = document.createElement('div');
@@ -178,7 +177,7 @@ const setPrevLine = (rawInput) => {
   siteContainer.insertBefore(previousLineDiv, currentTerminalDiv);
 };
 
-const skillsPrinter = (skillsData) => {
+const skillsPrinter = skillsData => {
   /* Prints a list of skills to screen */
   skiTableCount += 1;
   /* Build title */
@@ -207,7 +206,7 @@ const generateTable = (table, data) => {
   }
 };
 
-const manPrinter = (commandData) => {
+const manPrinter = commandData => {
   /* Prints man-pages to screen */
   manTableCount += 1;
   /* Build title */
@@ -218,8 +217,7 @@ const manPrinter = (commandData) => {
 
   /* Build table */
   let manTable = document.createElement('table');
-  manTable.setAttribute('class', 'mnTb' + manTableCount + ' ag mnTable' +
-    ' output-row');
+  manTable.setAttribute('class', 'mnTb' + manTableCount + ' ag mnTable' + ' output-row');
   siteContainer.insertBefore(manTable, currentTerminalDiv);
   let mnTable = document.getElementsByClassName('mnTb' + manTableCount)[0];
   generateTable(mnTable, commandData);
@@ -245,16 +243,16 @@ const githubPrinter = () => {
 const cdPrinter = () => {
   /* Prints 'cd' easter egg to screen */
   let cdDiv = document.createElement('p');
-  cdDiv.innerHTML = '...cd? Where ya gonna change to, kid? This ain\'t a REAL machine...';
+  cdDiv.innerHTML = "...cd? Where ya gonna change to, kid? This ain't a REAL machine...";
   cdDiv.setAttribute('class', 'ag output-row');
   siteContainer.insertBefore(cdDiv, currentTerminalDiv);
 };
 
-const commandPrinter = (commandData) => {
+const commandPrinter = commandData => {
   /* Builds a string of available commands and outputs to terminal */
   let commandArray = [];
 
-  commandData.forEach((command) => {
+  commandData.forEach(command => {
     commandArray.push(command.name);
   });
 
@@ -277,16 +275,21 @@ const contactPrinter = () => {
   /* Prints contact details to screen */
   let contactDiv = document.createElement('div');
   let email = 'letsbuild@ahumanfuture.co';
-  contactDiv.innerHTML = '<a href="mailto: ' + email + '?subject=Let us build..." target="_blank">' + email + '</a>';
+  contactDiv.innerHTML =
+    '<a href="mailto: ' +
+    email +
+    '?subject=Let us build..." target="_blank">' +
+    email +
+    '</a>';
   contactDiv.setAttribute('class', 'ag output-row');
   siteContainer.insertBefore(contactDiv, currentTerminalDiv);
 };
 
-const historyPrinter = (terminalHistoryLog) => {
+const historyPrinter = terminalHistoryLog => {
   /* Prints terminal history to screen */
   terminalHistoryLog.forEach((entryItem, index) => {
     let historyOutputRow = document.createElement('div');
-    historyOutputRow.innerHTML = (index + 1) + ' ' + entryItem;
+    historyOutputRow.innerHTML = index + 1 + ' ' + entryItem;
     historyOutputRow.setAttribute('class', 'ag output-row');
     siteContainer.insertBefore(historyOutputRow, currentTerminalDiv);
   });
@@ -305,12 +308,14 @@ const clearTerminal = () => {
 const mockLogin = () => {
   /* Micro function for mocking the 'login' process, called on first page load timer */
   let loginTimeDiv = document.getElementsByClassName('login-time')[0];
-  loginTimeDiv.innerHTML = '>> curious stranger, on ttys001 @ ' + new Date().toLocaleString();
+  loginTimeDiv.innerHTML =
+    '>> curious stranger, on ttys001 @ ' + new Date().toLocaleString();
 };
 
 const mockCommands = () => {
   /* Micro function for showing which commands are available, called on first page load timer */
-  document.getElementsByClassName('command-list')[0].innerHTML = '> \'ls\' lists cmds. ⬆ & ⬇ arrows cycle cmd history. Let\'s play.';
+  document.getElementsByClassName('command-list')[0].innerHTML =
+    "> 'ls' lists cmds. ⬆ & ⬇ arrows cycle cmd history. Let's play.";
 };
 
 const loadUserInput = () => {
@@ -324,7 +329,6 @@ const loadUserInput = () => {
   document.getElementsByClassName('machine-name')[0].innerHTML = machineName;
   terminalContainer.appendChild(userInput);
 };
-
 
 const initialisePage = () => {
   /* Initialises the page. We just sequentially load in the initial page

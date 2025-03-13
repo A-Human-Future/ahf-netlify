@@ -6,6 +6,7 @@ module.exports = config => {
   config.addPassthroughCopy('./src/fonts');
   config.addPassthroughCopy('./src/js');
   config.addPassthroughCopy('./src/images');
+  config.addShortcode('year', () => `${new Date().getFullYear()}`);
 
   config.setBrowserSyncConfig({
     callbacks: {

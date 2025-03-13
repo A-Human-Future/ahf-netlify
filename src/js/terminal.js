@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const triggers = document.querySelectorAll('[data-terminal]');
   const hasSupport = typeof HTMLDialogElement !== 'undefined';
 
