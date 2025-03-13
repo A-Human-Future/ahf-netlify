@@ -30,7 +30,7 @@
 @keyframes glitch {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*calc(1 / $steps))} {
       $top: random(100);
       $bottom: random(101 - $top);
       $topWithPercent: $top * 1%;
@@ -43,7 +43,7 @@
 @keyframes glitch-2 {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
+    #{percentage($i*calc(1 / $steps))} {
       $top: random(100);
       $bottom: random(101 - $top);
       $topWithPercent: $top * 1%;
