@@ -157,7 +157,7 @@ const commandListener = () => {
           break;
         default:
           /* Otherwise, the command doesn't exist */
-          commandNotFoundPrinter(cleanedInput);
+          commandNotFoundPrinter(rawInput);
       }
 
       /* Finally, force a reset and re-focus of terminal input field */
@@ -172,7 +172,8 @@ const setPrevLine = rawInput => {
   /* Get the relevant DOM objects, and set the content of the previous
    terminal line */
   let previousLineDiv = document.createElement('div');
-  previousLineDiv.innerHTML = machineName + rawInput;
+  // textContent, not innerHTML, so typed input is shown as text rather than run as markup
+  previousLineDiv.textContent = machineName + rawInput;
   previousLineDiv.setAttribute('class', 'ag output-row green-hl');
   siteContainer.insertBefore(previousLineDiv, currentTerminalDiv);
 };
@@ -263,10 +264,10 @@ const commandPrinter = commandData => {
   siteContainer.insertBefore(lsDiv, currentTerminalDiv);
 };
 
-const commandNotFoundPrinter = (userInput, rawInput) => {
+const commandNotFoundPrinter = rawInput => {
   /* We need to create two line outputs to emulate bash (the error is an extra line */
   let commandNotFoundDiv = document.createElement('div');
-  commandNotFoundDiv.innerHTML = '-bash: ' + rawInput + ': sorry, command not found.';
+  commandNotFoundDiv.textContent = '-bash: ' + rawInput + ': sorry, command not found.';
   commandNotFoundDiv.setAttribute('class', 'ag output-row');
   siteContainer.insertBefore(commandNotFoundDiv, currentTerminalDiv);
 };
@@ -289,7 +290,7 @@ const historyPrinter = terminalHistoryLog => {
   /* Prints terminal history to screen */
   terminalHistoryLog.forEach((entryItem, index) => {
     let historyOutputRow = document.createElement('div');
-    historyOutputRow.innerHTML = index + 1 + ' ' + entryItem;
+    historyOutputRow.textContent = index + 1 + ' ' + entryItem;
     historyOutputRow.setAttribute('class', 'ag output-row');
     siteContainer.insertBefore(historyOutputRow, currentTerminalDiv);
   });
