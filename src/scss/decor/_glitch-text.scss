@@ -1,4 +1,17 @@
+@use 'gorko';
+
 // A modified version of this classic by chris: https://css-tricks.com/glitch-effect-text-images-svg/
+@use 'sass:math';
+
+// Seeded pseudo-random numbers (Park–Miller), so the keyframes and the CSS
+// file's content hash stay the same from build to build
+$-seed: 42;
+
+@function -random($limit) {
+  $-seed: ($-seed * 16807) % 2147483647 !global;
+  @return $-seed % $limit + 1;
+}
+
 .glitch-text {
   @media (prefers-reduced-motion: no-preference) {
     position: relative;
@@ -7,7 +20,7 @@
       content: attr(data-text);
       position: absolute;
       left: -2px;
-      text-shadow: 1px 0 get-color('secondary');
+      text-shadow: 1px 0 gorko.get-color('secondary');
       top: 0;
       background: white;
       overflow: hidden;
@@ -18,7 +31,7 @@
       content: attr(data-text);
       position: absolute;
       left: 2px;
-      text-shadow: -1px 0 get-color('primary');
+      text-shadow: -1px 0 gorko.get-color('primary');
       top: 0;
       background: white;
       overflow: hidden;
@@ -30,9 +43,9 @@
 @keyframes glitch {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
+    #{math.percentage($i*math.div(1, $steps))} {
+      $top: -random(100);
+      $bottom: -random(101 - $top);
       $topWithPercent: $top * 1%;
       $bottomWithPercent: $bottom * 1%;
       clip-path: inset(#{$topWithPercent} 0 #{$bottomWithPercent} 0);
@@ -43,9 +56,9 @@
 @keyframes glitch-2 {
   $steps: 20;
   @for $i from 0 through $steps {
-    #{percentage($i*(1/$steps))} {
-      $top: random(100);
-      $bottom: random(101 - $top);
+    #{math.percentage($i*math.div(1, $steps))} {
+      $top: -random(100);
+      $bottom: -random(101 - $top);
       $topWithPercent: $top * 1%;
       $bottomWithPercent: $bottom * 1%;
       clip-path: inset(#{$topWithPercent} 0 #{$bottomWithPercent} 0);

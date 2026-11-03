@@ -1,3 +1,7 @@
+@use 'gorko';
+@use 'config';
+@use 'mixins';
+
 $burger-menu-transition: 600ms;
 
 // Default no-js status
@@ -6,7 +10,7 @@ $burger-menu-transition: 600ms;
     display: flex;
     flex-wrap: wrap;
     flex: auto;
-    gap: $global-gutter;
+    gap: config.$global-gutter;
     padding: 0;
     line-height: 1;
   }
@@ -31,44 +35,42 @@ burger-menu {
 // If everything works, get the proper styles going
 // (status) attribute is added by the web component
 .burger-menu[status] {
-  padding-top: get-size('400');
+  padding-top: gorko.get-size('400');
 
   .burger-menu__panel {
-    padding: get-size('700') get-size('600');
+    padding: gorko.get-size('700') gorko.get-size('600');
     width: var(--burger-menu-width);
     position: fixed;
     display: block;
     top: 0;
     bottom: 0;
     left: 100%;
-    background: get-color('primary');
+    background: gorko.get-color('primary');
 
     // Adds a little extra so the easing doesn't expose the background
-    box-shadow: 20px 0px 0px get-color('primary');
+    box-shadow: 20px 0px 0px gorko.get-color('primary');
 
     nav {
       position: sticky;
-      top: get-size('600');
+      top: gorko.get-size('600');
 
       a {
         width: max-content;
       }
 
       a:focus {
-        outline-color: get-color('light');
+        outline-color: gorko.get-color('light');
         outline-offset: 8px;
       }
     }
   }
 
   .burger-menu__nav {
-    /// I don't like extending classes but this needs to flow
-    /// and you only live once
-    @extend .flow;
+    @include mixins.flow;
 
-    --flow-space: #{get-size('400')};
+    --flow-space: #{gorko.get-size('400')};
     display: block;
-    font-size: get-size('600');
+    font-size: gorko.get-size('600');
 
     // The default state is "hidden"
     opacity: 0;
@@ -80,34 +82,34 @@ burger-menu {
 
       &:hover {
         transform: translateX(0.5ch);
-        transition: 300ms transform $global-bezier;
+        transition: 300ms transform config.$global-bezier;
       }
     }
 
     a:not(:hover) {
-      color: get-color('dark');
+      color: gorko.get-color('dark');
     }
 
     [data-type='secondary'] {
-      font-size: get-size('500');
+      font-size: gorko.get-size('500');
     }
 
     // Add a touch more flow space to the first
     // type of secondary to push it away from primary
     [data-type='primary'] + [data-type='secondary'] {
-      --flow-space: #{get-size('600')};
+      --flow-space: #{gorko.get-size('600')};
     }
   }
 }
 
 .burger-menu[status][data-theme='secondary'] {
   .burger-menu__panel {
-    background: get-color('secondary');
-    color: get-color('light');
+    background: gorko.get-color('secondary');
+    color: gorko.get-color('light');
 
     a:not(:hover),
     a:hover {
-      color: get-color('light');
+      color: gorko.get-color('light');
     }
   }
 }
@@ -116,7 +118,7 @@ burger-menu {
 // It is the element that will shift left when the burger menu opens
 [data-burger-menu-status] {
   --burger-menu-width: calc(100% - 25vw);
-  transition: transform $burger-menu-transition $global-bezier;
+  transition: transform $burger-menu-transition config.$global-bezier;
 }
 
 // When the burger menu is open, we shift the parent left
@@ -129,12 +131,12 @@ burger-menu {
     // We're using !important here because the specificity is identical to it's closed state
     opacity: 1 !important;
     transform: translateX(0) !important;
-    transition: all $burger-menu-transition $global-bezier;
+    transition: all $burger-menu-transition config.$global-bezier;
     transition-delay: $burger-menu-transition * 1.5;
   }
 }
 
-@include media-query('md') {
+@include gorko.media-query('md') {
   [data-burger-menu-status] {
     --burger-menu-width: 30rem;
   }

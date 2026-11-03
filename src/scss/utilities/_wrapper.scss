@@ -1,3 +1,5 @@
+@use 'config';
+
 /**
  * WRAPPER
  * Sets a max width, adds a consisten gutter and horizontally
@@ -5,7 +7,7 @@
  */
 .wrapper {
   max-width: 95rem;
-  padding-inline: $global-gutter;
+  padding-inline: config.$global-gutter;
   margin-left: auto;
   margin-right: auto;
   position: relative;

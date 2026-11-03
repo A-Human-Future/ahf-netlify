@@ -1,8 +1,11 @@
+@use 'gorko';
+@use 'config';
+
 .hero {
   display: grid;
   grid-template-columns: 100%;
-  gap: get-size('400') 0;
-  padding: get-size('300') 0 get-size('500') 0;
+  gap: gorko.get-size('400') 0;
+  padding: gorko.get-size('300') 0 gorko.get-size('500') 0;
 
   &__footer {
     display: flex;
@@ -11,9 +14,9 @@
     gap: 0.5rem;
   }
 
-  @include media-query('lg') {
+  @include gorko.media-query('lg') {
     grid-template-columns: repeat(12, 1fr);
-    gap: 0 $global-gutter;
+    gap: 0 config.$global-gutter;
     min-height: 80vh;
 
     &__title,
@@ -30,7 +33,7 @@
     }
 
     &__footer {
-      padding-top: get-size('600');
+      padding-top: gorko.get-size('600');
     }
   }
 }

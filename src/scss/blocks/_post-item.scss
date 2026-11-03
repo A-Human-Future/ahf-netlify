@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .post-item {
   display: block;
   text-decoration: none;
@@ -6,11 +8,11 @@
     display: flex;
     flex-direction: column-reverse;
     color: currentColor;
-    margin-top: get-size('300');
+    margin-top: gorko.get-size('300');
 
     time {
       margin-bottom: 0.5em;
-      @include apply-utility('font', 'mono');
+      @include gorko.apply-utility('font', 'mono');
     }
   }
 
@@ -19,10 +21,10 @@
   }
 
   &:not(:hover) {
-    color: get-color('dark');
+    color: gorko.get-color('dark');
 
     time {
-      color: get-color('primary');
+      color: gorko.get-color('primary');
     }
   }
 
@@ -30,7 +32,7 @@
     display: grid;
     grid-template-columns: 8rem minmax(0, 1fr);
     align-items: start;
-    gap: get-size('400');
+    gap: gorko.get-size('400');
 
     img {
       width: 8rem;

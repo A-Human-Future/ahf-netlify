@@ -1,0 +1,10 @@
+// Configure gorko with our tokens once, so every partial can `@use 'gorko'`
+@use 'config';
+
+@forward 'gorko/gorko' with (
+  $gorko-size-scale: config.$gorko-size-scale,
+  $gorko-colors: config.$gorko-colors,
+  $gorko-config: config.$gorko-config,
+  // Utility classes are rendered at the end of global.scss instead
+  $generate-utility-classes: false
+);

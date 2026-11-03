@@ -1,6 +1,11 @@
 ---
 title: 'Home'
 permalink: '/index.html'
+pageScripts:
+  - '/js/fade-in.js'
+  - '/js/switch-text.js'
+  - '/js/terminal.js'
+  - '/js/miniterm.js'
 ---
 
 {% extends "layouts/base.njk" %} 
@@ -56,7 +61,7 @@ permalink: '/index.html'
         <picture class="toggle-caption__media">
           <source srcset="/images/home-1.avif" type="image/avif" />
           <source srcset="/images/home-1.webp" type="image/webp" />
-          <img src="/images/home-1.jpg" alt="Futuristic, dramatic image of man in an artistic style, designed to give the impression of humanity's interaction with technology." />
+          <img src="/images/home-1.jpg" width="1147" height="1246" loading="lazy" decoding="async" alt="Futuristic, dramatic image of man in an artistic style, designed to give the impression of humanity's interaction with technology." />
         </picture>
         <figcaption class="[ toggle-caption__content ] [ flow ] [ leading-flat flow-space-300 ]" data-direction="vertical" data-switch-text>
           <button class="[ link-button-invert ] [ font-mono text-300 color-light ]" aria-label="Translate" data-switch-trigger><blink>Translate ></blink></button>
@@ -71,7 +76,7 @@ permalink: '/index.html'
           <picture class="flow-space-600">
             <source srcset="/images/home-2.avif" type="image/avif" />
             <source srcset="/images/home-2.webp" type="image/webp" />
-            <img src="/images/home-2.jpg" alt="Futuristic image of an old television with an eye peering out of it - designed to convey a  relationship between sentient technology and humanity." />
+            <img src="/images/home-2.jpg" width="498" height="500" loading="lazy" decoding="async" alt="Futuristic image of an old television with an eye peering out of it - designed to convey a  relationship between sentient technology and humanity." />
           </picture>
           {{ circleText("we don't fear, we don't fear these machines", 'ghost-text')}}
         </div>
@@ -101,7 +106,7 @@ permalink: '/index.html'
         <picture class="toggle-caption__media">
           <source srcset="/images/home-3.avif" type="image/avif" />
           <source srcset="/images/home-3.webp" type="image/webp" />
-          <img src="/images/home-3.jpg" alt="Soft focus lights, like fairy lights, on a dark background." />
+          <img src="/images/home-3.jpg" width="1000" height="1333" loading="lazy" decoding="async" alt="Soft focus lights, like fairy lights, on a dark background." />
         </picture>
         <figcaption class="[ toggle-caption__content ] [ flow ] [ leading-flat flow-space-300 ]" data-switch-text>
           <p data-switch-content="When eaten alone, even bream becomes flavourless" data-switch-lang="en">鯛も一人はうまからず</p>

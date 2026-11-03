@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .generic-content {
   max-width: 40rem;
   margin-left: auto;
@@ -5,19 +7,19 @@
   text-align: left;
 
   h2 {
-    font-size: get-size('600');
+    font-size: gorko.get-size('600');
   }
 
   h3,
   h4 {
-    font-size: get-size('500');
+    font-size: gorko.get-size('500');
   }
 
   :is(h2, h3, h4) {
-    --flow-space: #{get-size('700')};
+    --flow-space: #{gorko.get-size('700')};
 
     & + * {
-      --flow-space: #{get-size('400')};
+      --flow-space: #{gorko.get-size('400')};
     }
   }
 

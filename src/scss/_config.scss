@@ -1,12 +1,11 @@
-/**
- * SIZE SCALE
- * This is a Perfect Fourth scale that powers all the utilities that
- * it is relevant for (font-size, margin, padding). All items are
- * calculated off the base size, so change that and cascade across
- * your whole project.
-
- * Generator: https://utopia.fyi/type/calculator/?c=320,16,1.2,1140,23,1.55,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
- */
+@use 'sass:map';
+/// SIZE SCALE
+/// This is a Perfect Fourth scale that powers all the utilities that
+/// it is relevant for (font-size, margin, padding). All items are
+/// calculated off the base size, so change that and cascade across
+/// your whole project.
+///
+/// Generator: https://utopia.fyi/type/calculator/?c=320,16,1.2,1140,23,1.55,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l
 $gorko-size-scale: (
         '300': clamp(0.83rem, 0.8rem + 0.18vw, 0.93rem),
         '400': clamp(1rem, 0.83rem + 0.85vw, 1.44rem),
@@ -16,11 +15,9 @@ $gorko-size-scale: (
         '800': clamp(2.07rem, -0.36rem + 12.14vw, 8.3rem)
 );
 
-/**
- * COLORS
- * Colors are shared between backgrounds and text by default. 
- * You can also use them to power borders, fills or shadows, for example.
- */
+/// COLORS
+/// Colors are shared between backgrounds and text by default.
+/// You can also use them to power borders, fills or shadows, for example.
 $gorko-colors: (
         'dark': #000000,
         'light': #ffffff,
@@ -28,17 +25,13 @@ $gorko-colors: (
         'secondary': #000aff
 );
 
-/**
- * GLOBAL VARIABLES
- */
-$global-gutter: #{map-get($gorko-size-scale, '400')};
+/// GLOBAL VARIABLES
+$global-gutter: #{map.get($gorko-size-scale, '400')};
 $global-bezier: cubic-bezier(0.42, 0, 0.32, 1.17);
 
-/**
- * CORE CONFIG
- * This powers everything from utility class generation to breakpoints
- * to enabling/disabling pre-built components/utilities.
- */
+/// CORE CONFIG
+/// This powers everything from utility class generation to breakpoints
+/// to enabling/disabling pre-built components/utilities.
 $gorko-config: (
         'bg': (
                 'items': $gorko-colors,

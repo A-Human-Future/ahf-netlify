@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .circle-text {
   text-transform: uppercase;
   font-size: 43px; // We're using px because SVG aint diggin' clamp
@@ -5,10 +7,10 @@
   height: 14rem;
   transform: rotate(70deg);
 
-  @include apply-utility('font', 'mono');
+  @include gorko.apply-utility('font', 'mono');
 
   text {
-    fill: get-color('secondary');
+    fill: gorko.get-color('secondary');
   }
 
   @media (prefers-reduced-motion: no-preference) {

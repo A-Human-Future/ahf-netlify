@@ -1,7 +1,9 @@
+@use 'gorko';
+
 .sidebar {
   display: flex;
   flex-wrap: wrap;
-  gap: get-size('600');
+  gap: gorko.get-size('600');
 }
 
 .sidebar > :last-child {

@@ -1,3 +1,6 @@
+@use 'gorko';
+@use 'config';
+
 .splitter {
   flex-wrap: wrap;
 
@@ -6,13 +9,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: $global-gutter;
+    gap: config.$global-gutter;
   }
 
-  @include media-query('md') {
+  @include gorko.media-query('md') {
     &__group {
       min-width: 15rem;
-      gap: clamp(#{$global-gutter}, 5rem, 10rem);
+      gap: clamp(#{config.$global-gutter}, 5rem, 10rem);
     }
   }
 }

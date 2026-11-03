@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .dot {
   display: block;
   flex: none;
@@ -8,6 +10,6 @@
 
   // If no color util added, set to primary by default
   &:not([class*='color-']) {
-    background: get-color('primary');
+    background: gorko.get-color('primary');
   }
 }

@@ -1,3 +1,5 @@
+@use 'gorko';
+
 /* Table classes */
 table {
   font-size: 14px;
@@ -68,7 +70,7 @@ td {
 
 /* Green highlight */
 .green-hl {
-  color: get-color('primary');
+  color: gorko.get-color('primary');
 }
 
 /* Terminal & input classes */
@@ -90,7 +92,7 @@ td {
   font-size: 14px;
   outline: none;
   width: 60%;
-  color: get-color('primary');
+  color: gorko.get-color('primary');
   border: 0;
   height: 20px;
   padding: 0;

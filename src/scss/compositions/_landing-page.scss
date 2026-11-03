@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .landing-page {
   counter-reset: eyebrow;
 
@@ -20,10 +22,10 @@
 
   &__close-out,
   &__content-pair {
-    gap: get-size('500');
+    gap: gorko.get-size('500');
 
     section {
-      --flow-space: #{get-size('400')};
+      --flow-space: #{gorko.get-size('400')};
       flex-basis: 30rem;
     }
 
@@ -39,7 +41,7 @@
 
   &__content-pair {
     justify-content: space-between;
-    margin-top: get-size('400');
+    margin-top: gorko.get-size('400');
 
     > figure {
       flex-basis: 40rem;
@@ -56,13 +58,13 @@
     transform: translateY(-0.2ex); // Cheeky optical adjustment
   }
 
-  @include media-query('md') {
+  @include gorko.media-query('md') {
     &__bridge {
       &,
       .headline {
         display: grid;
         grid-template-columns: 4.5rem minmax(0, auto);
-        gap: get-size('400') get-size('400');
+        gap: gorko.get-size('400') gorko.get-size('400');
       }
 
       .eyebrow {
@@ -76,7 +78,7 @@
     }
   }
 
-  @include media-query('lg') {
+  @include gorko.media-query('lg') {
     &__close-out {
       .headline {
         writing-mode: vertical-rl;

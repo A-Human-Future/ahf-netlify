@@ -1,5 +1,7 @@
+@use 'gorko';
+
 .line-highlight {
-  @include media-query('md') {
+  @include gorko.media-query('md') {
     position: relative;
 
     &::after {
