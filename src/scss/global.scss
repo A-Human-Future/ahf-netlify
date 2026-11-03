@@ -147,13 +147,10 @@ marquee {
 }
 
 // Import compositions
-@include meta.load-css('compositions/blog-landing-page');
 @include meta.load-css('compositions/contact-page');
-@include meta.load-css('compositions/content-page');
 @include meta.load-css('compositions/headline');
 @include meta.load-css('compositions/hero');
 @include meta.load-css('compositions/landing-page');
-@include meta.load-css('compositions/sidebar');
 @include meta.load-css('compositions/splitter');
 
 // Import decorative stuff
@@ -171,9 +168,7 @@ marquee {
 @include meta.load-css('blocks/button');
 @include meta.load-css('blocks/eyebrow');
 @include meta.load-css('blocks/form-group');
-@include meta.load-css('blocks/generic-content');
 @include meta.load-css('blocks/link-button');
-@include meta.load-css('blocks/post-item');
 @include meta.load-css('blocks/site-foot');
 @include meta.load-css('blocks/site-head');
 @include meta.load-css('blocks/skip-link');

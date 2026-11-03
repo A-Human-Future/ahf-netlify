@@ -1,6 +1,2 @@
 node_modules
 .idea
-
-# Placeholder blog pages, not published until real articles exist
-src/articles.njk
-src/article-post.njk
