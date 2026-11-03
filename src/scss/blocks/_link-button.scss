@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .link-button {
   display: inline;
   padding: 0;
@@ -5,7 +7,7 @@
   font: inherit;
   text-decoration: underline;
   background: transparent;
-  color: get-color('secondary');
+  color: gorko.get-color('secondary');
   -webkit-appearance: none;
 
   &:hover {
@@ -20,7 +22,7 @@
   font: inherit;
   text-decoration: none;
   background: transparent;
-  color: get-color('secondary');
+  color: gorko.get-color('secondary');
   -webkit-appearance: none;
 
   &:hover {

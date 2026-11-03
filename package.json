@@ -1,24 +1,26 @@
 {
-  "name": "11ty-base-no-blog",
+  "name": "ahf-website",
   "version": "1.0.0",
-  "description": "",
-  "main": ".eleventy.js",
-  "scripts": {
-    "sass:process": "sass src/scss/global.scss dist/css/global.css",
-    "sass:watch": "npm run sass:process -- --watch",
-    "start": "npm run sass:process && concurrently 'npm run sass:watch' 'eleventy --serve --quiet'",
-    "production": "NODE_ENV=production npm run sass:process && NODE_ENV=production eleventy"
+  "private": true,
+  "description": "The A Human Future studio website, built with Eleventy and Sass",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
   },
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "sass:process": "sass --load-path=src/scss --load-path=node_modules --quiet-deps src/scss/global.scss dist/css/global.css",
+    "sass:watch": "npm run sass:process -- --watch",
+    "start": "npm run sass:process && concurrently \"npm run sass:watch\" \"eleventy --serve --quiet\"",
+    "production": "NODE_ENV=production npm run sass:process -- --style=compressed --no-source-map && NODE_ENV=production eleventy"
+  },
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "3.1.2",
-    "concurrently": "^9.2.1",
+    "@11ty/eleventy": "^3.1.8",
+    "concurrently": "^10.0.6",
     "gorko": "^0.9.1",
-    "sass": "^1.94.0"
+    "sass": "^1.107.1"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "prettier": "^3.9.10"
   }
 }

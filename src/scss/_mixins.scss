@@ -1,0 +1,23 @@
+// Shared rule sets for utilities and blocks that need them.
+// Mixins replace @extend, which can't reach across modules with @use.
+@use 'gorko';
+
+/// Applies a margin to sibling elements based on a --flow-space custom property
+@mixin flow {
+  > * + * {
+    margin-top: var(--flow-space, gorko.get-size('600'));
+  }
+}
+
+/// Hides an element visually but keeps it available to screen readers
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}

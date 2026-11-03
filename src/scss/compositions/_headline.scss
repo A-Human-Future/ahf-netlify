@@ -1,7 +1,9 @@
+@use 'gorko';
+
 .headline {
   display: flex;
   align-items: baseline;
-  gap: get-size('400');
+  gap: gorko.get-size('400');
 
-  @include apply-utility('leading', 'flat');
+  @include gorko.apply-utility('leading', 'flat');
 }

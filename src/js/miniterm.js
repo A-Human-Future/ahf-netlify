@@ -339,5 +339,7 @@ const initialisePage = () => {
   commandListener();
 };
 
-/* Just calls and runs the whole system :) */
-initialisePage();
+/* Just calls and runs the whole system :) — but only if the terminal is on this page */
+if (terminalContainer) {
+  initialisePage();
+}

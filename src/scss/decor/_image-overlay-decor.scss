@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .image-overlay-decor {
   position: relative;
 
@@ -15,7 +17,7 @@
     }
 
     &::after {
-      background: get-color('secondary');
+      background: gorko.get-color('secondary');
       mix-blend-mode: screen;
       height: 40%;
       top: 15%;
@@ -35,14 +37,14 @@
       }
 
       &::after {
-        background: get-color('primary');
+        background: gorko.get-color('primary');
         mix-blend-mode: multiply;
       }
 
       &::before {
         height: 10%;
         bottom: 38%;
-        background: get-color('secondary');
+        background: gorko.get-color('secondary');
         mix-blend-mode: saturation;
         filter: saturate(20%);
         transform: translateX(-50%) skew(10deg);

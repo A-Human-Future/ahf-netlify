@@ -1,3 +1,5 @@
+@use 'gorko';
+
 .terminal {
   width: 100%;
   max-width: 40rem;
@@ -22,8 +24,8 @@
 
   &__inner {
     position: relative;
-    background: get-color('dark');
-    color: get-color('light');
+    background: gorko.get-color('dark');
+    color: gorko.get-color('light');
     //padding: $global-gutter;
     padding-top: 1.4rem;
     padding-right: 1.4rem;

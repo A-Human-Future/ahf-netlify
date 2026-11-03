@@ -1,26 +1,23 @@
-// First up: config and functions
-@import 'config';
+@use 'sass:meta';
 
-// Disable util class generator because we'll render them at the end
-$generate-utility-classes: false;
+// Design tokens and gorko, configured in _config.scss and _gorko.scss
+@use 'gorko';
 
-// Next: pull in gorko for design tokens
-@import '../../node_modules/gorko/gorko.scss';
-
-@import 'reset';
+@use 'fonts';
+@use 'reset';
 
 // Global styles start
 
 body {
   display: flex;
   flex-direction: column;
-  background: get-color('light');
-  color: get-color('dark');
+  background: gorko.get-color('light');
+  color: gorko.get-color('dark');
   line-height: 1.5;
-  font-size: get-size('400');
+  font-size: gorko.get-size('400');
   overflow-x: hidden;
 
-  @include apply-utility('font', 'base');
+  @include gorko.apply-utility('font', 'base');
 }
 
 main {
@@ -36,7 +33,7 @@ a:not([class]) {
 }
 
 :focus {
-  outline: 2px dashed get-color('primary');
+  outline: 2px dashed gorko.get-color('primary');
   outline-offset: 0.25rem;
 }
 
@@ -49,29 +46,29 @@ h2,
 h3,
 h4 {
   font-weight: 400;
-  @include apply-utility('leading', 'flat');
+  @include gorko.apply-utility('leading', 'flat');
 }
 
 h1 {
-  font-size: get-size('800');
+  font-size: gorko.get-size('800');
 }
 
 h2 {
-  font-size: get-size('700');
+  font-size: gorko.get-size('700');
 }
 
 h3 {
-  font-size: get-size('600');
+  font-size: gorko.get-size('600');
 }
 
 h4 {
-  font-size: get-size('500');
+  font-size: gorko.get-size('500');
 }
 
 em {
   font-style: normal;
   text-decoration: underline;
-  text-decoration-color: get-color('primary');
+  text-decoration-color: gorko.get-color('primary');
   text-decoration-thickness: 1ex;
   text-underline-offset: -1.25ex;
   text-decoration-skip-ink: none;
@@ -80,7 +77,7 @@ em {
 }
 
 a:not([class]) {
-  color: get-color('secondary');
+  color: gorko.get-color('secondary');
 
   &:hover {
     text-decoration: none;
@@ -94,12 +91,12 @@ ul:not([role]) {
 ol:not([role]) {
   padding: 0 0 0 2.2em;
 
-  @include apply-utility('font', 'mono');
+  @include gorko.apply-utility('font', 'mono');
 }
 
 ul:not([role]),
 ol:not([role]) {
-  @include apply-utility('font', 'mono');
+  @include gorko.apply-utility('font', 'mono');
 
   > * + * {
     margin-top: 0.5em;
@@ -109,16 +106,16 @@ ol:not([role]) {
 p,
 li,
 blockquote {
-  @include apply-utility('measure', 'long');
+  @include gorko.apply-utility('measure', 'long');
 }
 
 input,
 textarea {
-  font-size: get-size('300');
+  font-size: gorko.get-size('300');
   padding: 1em;
   border: none;
 
-  @include apply-utility('font', 'mono');
+  @include gorko.apply-utility('font', 'mono');
 }
 
 marquee {
@@ -138,58 +135,58 @@ marquee {
 
   li + li::before {
     content: '·';
-    color: get-color('secondary');
+    color: gorko.get-color('secondary');
     font-size: 4em;
     transform: translateY(-0.025ex);
   }
 }
 
 ::selection {
-  background: get-color('dark');
-  color: get-color('light');
+  background: gorko.get-color('dark');
+  color: gorko.get-color('light');
 }
 
 // Import compositions
-@import 'compositions/blog-landing-page';
-@import 'compositions/contact-page';
-@import 'compositions/content-page';
-@import 'compositions/headline';
-@import 'compositions/hero';
-@import 'compositions/landing-page';
-@import 'compositions/sidebar';
-@import 'compositions/splitter';
+@include meta.load-css('compositions/blog-landing-page');
+@include meta.load-css('compositions/contact-page');
+@include meta.load-css('compositions/content-page');
+@include meta.load-css('compositions/headline');
+@include meta.load-css('compositions/hero');
+@include meta.load-css('compositions/landing-page');
+@include meta.load-css('compositions/sidebar');
+@include meta.load-css('compositions/splitter');
 
 // Import decorative stuff
-@import 'decor/circle-text';
-@import 'decor/fade-in';
-@import 'decor/glitch-text';
-@import 'decor/image-overlay-decor';
-@import 'decor/miniterm';
-@import 'decor/blink';
+@include meta.load-css('decor/circle-text');
+@include meta.load-css('decor/fade-in');
+@include meta.load-css('decor/glitch-text');
+@include meta.load-css('decor/image-overlay-decor');
+@include meta.load-css('decor/miniterm');
+@include meta.load-css('decor/blink');
 
 // Import blocks
-@import 'blocks/audio-toggle';
-@import 'blocks/brand';
-@import 'blocks/burger-menu';
-@import 'blocks/button';
-@import 'blocks/eyebrow';
-@import 'blocks/form-group';
-@import 'blocks/generic-content';
-@import 'blocks/link-button';
-@import 'blocks/post-item';
-@import 'blocks/site-foot';
-@import 'blocks/site-head';
-@import 'blocks/skip-link';
-@import 'blocks/terminal';
-@import 'blocks/toggle-caption';
-@import 'blocks/link-plain';
+@include meta.load-css('blocks/audio-toggle');
+@include meta.load-css('blocks/brand');
+@include meta.load-css('blocks/burger-menu');
+@include meta.load-css('blocks/button');
+@include meta.load-css('blocks/eyebrow');
+@include meta.load-css('blocks/form-group');
+@include meta.load-css('blocks/generic-content');
+@include meta.load-css('blocks/link-button');
+@include meta.load-css('blocks/post-item');
+@include meta.load-css('blocks/site-foot');
+@include meta.load-css('blocks/site-head');
+@include meta.load-css('blocks/skip-link');
+@include meta.load-css('blocks/terminal');
+@include meta.load-css('blocks/toggle-caption');
+@include meta.load-css('blocks/link-plain');
 
 // Import utilities
-@import 'utilities/dot';
-@import 'utilities/flow';
-@import 'utilities/line-highlight';
-@import 'utilities/visually-hidden';
-@import 'utilities/wrapper';
+@include meta.load-css('utilities/dot');
+@include meta.load-css('utilities/flow');
+@include meta.load-css('utilities/line-highlight');
+@include meta.load-css('utilities/visually-hidden');
+@include meta.load-css('utilities/wrapper');
 
 // Render gorko utilities
-@include generate-utility-classes();
+@include gorko.generate-utility-classes();

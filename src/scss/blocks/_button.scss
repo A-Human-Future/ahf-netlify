@@ -1,7 +1,9 @@
+@use 'gorko';
+
 .button {
   --button-bg: transparent;
-  --button-text: #{get-color('dark')};
-  --button-stroke: #{get-color('secondary')};
+  --button-text: #{gorko.get-color('dark')};
+  --button-stroke: #{gorko.get-color('secondary')};
 
   display: inline-block;
   border: 2px solid var(--button-stroke);
@@ -9,12 +11,12 @@
   color: var(--button-text);
   border-radius: 50%;
   line-height: 1;
-  padding: get-size('600') get-size('700');
+  padding: gorko.get-size('600') gorko.get-size('700');
   text-decoration: none;
 
   &:hover {
-    --button-text: #{get-color('light')};
-    --button-bg: #{get-color('secondary')};
+    --button-text: #{gorko.get-color('light')};
+    --button-bg: #{gorko.get-color('secondary')};
   }
 
   &:focus {
@@ -24,6 +26,6 @@
 
   /// Themes
   &[data-theme='light'] {
-    --button-stroke: #{get-color('light')};
+    --button-stroke: #{gorko.get-color('light')};
   }
 }
