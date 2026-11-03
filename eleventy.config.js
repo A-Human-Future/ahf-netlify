@@ -18,9 +18,6 @@ export default function (config) {
     return url;
   });
 
-  // 2026 → '26', 2105 → '05'
-  config.addFilter('shortYear', year => String(year % 100).padStart(2, '0'));
-
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   config.setUseGitIgnore(false);
 

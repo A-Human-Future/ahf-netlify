@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const triggers = document.querySelectorAll('[data-terminal]');
 
   // Link each trigger to its dialog
